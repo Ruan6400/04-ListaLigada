@@ -115,30 +115,36 @@
   }  
   
   void inserirElemento()  
-  {  
-          // aloca memoria dinamicamente para o novo elemento  
-          NO* novo = (NO*)malloc(sizeof(NO));  
-          if (novo == NULL)  
-          {  
-                  return;  
-          }  
-  
-          cout << "Digite o elemento: ";  
-          cin >> novo->valor;  
-          novo->prox = NULL;  
-  
-          if (primeiro == NULL)  
-          {  
+  {       
+          int Numero;
+          cout << "Digite o elemento: \n";
+          cin >> Numero;
+          
+          if(posicaoElemento(Numero)==NULL){
+            // aloca memoria dinamicamente para o novo elemento  
+            NO* novo = (NO*)malloc(sizeof(NO));  
+            if (novo == NULL)  
+            {  
+                return;  
+            }  
+            novo->valor=Numero;  
+            novo->prox = NULL;  
+            if (primeiro == NULL)  
+            {  
                   primeiro = novo;  
-          }  
-          else  
-          { // procura o final da lista  
-            NO* aux = primeiro;  
-            while (aux->prox != NULL) {  
+            }  
+            else  
+            { // procura o final da lista  
+              NO* aux = primeiro;  
+              while (aux->prox != NULL) {  
                           aux = aux->prox;  
                   }  
                   aux->prox = novo;  
-          }  
+            }
+         }
+         else{
+             cout << "\nEsse valor ja esta na lista \n";
+         }
   }  
   
   void excluirElemento() {  
