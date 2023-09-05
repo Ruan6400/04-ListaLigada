@@ -29,5 +29,8 @@ Faça um fork deste repositorio e realize as seguintes atividades:
 * Pede para o usuario digitar um numero
 * Busca o numero na lista
 * Se encontrado exclue o elemento e atualiza a quantidade de elementos na lista
-* Se não econtrado exibe "ELEMENTO NAO ENCONTRADO" 
+* Se não econtrado exibe "ELEMENTO NAO ENCONTRADO"
+
+Ruan Santos
+ruan.santos9@fatec.sp.gov.br
 
