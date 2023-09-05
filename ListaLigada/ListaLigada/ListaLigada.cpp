@@ -184,10 +184,23 @@
       } 
   }  
   
-  void buscarElemento()  
-  {  
-  
-  }  
+  void buscarElemento(){
+      int NumeroBusca;
+      if(primeiro!=NULL){
+          
+         cout << "Digite o valor que procura: \n";
+         cin >> NumeroBusca;
+         if(posicaoElemento(NumeroBusca)!=NULL){
+             cout <<"\nValor encontrado \n";
+         }
+         else{
+             cout <<"\nEsse valor nao consta na lista \n";
+         }
+      }
+      else{
+          cout<<"\nLista vazia\n";
+      }
+  }
   
   
   
