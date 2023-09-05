@@ -1,4 +1,4 @@
- #include <iostream>  
+#include <iostream>  
   using namespace std;  
   
   // definicao de tipo  
@@ -148,8 +148,11 @@
       cout << "Digite o numero a ser excluido: "; 
       cin >> NumExc; 
       NO* EnderecoAtual = primeiro; 
-      NO* Anterior; 
-      while(EnderecoAtual!=NULL){ 
+      NO* Anterior;
+      if(posicaoElemento(NumExc)==NULL){
+          cout << "Valor nao encontrado\n";
+      }
+      while(EnderecoAtual!=NULL&&posicaoElemento(NumExc)!=NULL){ 
           if(IndiceZero==true){
               if(EnderecoAtual->valor==NumExc){ 
                   primeiro=EnderecoAtual->prox; 
@@ -201,4 +204,4 @@
                   aux = aux->prox;  
           }  
           return aux;  
-}
+  }
