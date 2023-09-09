@@ -119,18 +119,25 @@
           int Numero;
           cout << "Digite o elemento: \n";
           cin >> Numero;
-          
+
+          //aqui eu perguntei se nao ha nenhum elemento parecido na lista
           if(posicaoElemento(Numero)==NULL){
             // aloca memoria dinamicamente para o novo elemento  
             NO* novo = (NO*)malloc(sizeof(NO));  
             if (novo == NULL)  
             {  
                 return;  
-            }  
+            }
+
+            //insere o valor digitado no espaco alocado
             novo->valor=Numero;  
-            novo->prox = NULL;  
+            novo->prox = NULL;
+            //os novos valores sempre sao inseridos no final da lista
+            //como o ultimo item nao vai apontar para uma proxima variavel
+            //a propriedade prox deve ser nula (NULL)
+            
             if (primeiro == NULL)  
-            {  
+            {  //caso a lista estivesse vazia
                   primeiro = novo;  
             }  
             else  
@@ -153,36 +160,46 @@
       bool apagou=false; 
       cout << "Digite o numero a ser excluido: "; 
       cin >> NumExc; 
-      NO* EnderecoAtual = primeiro; 
+      NO* EnderecoAtual = primeiro; //salvar o endereco do primeiro item
       NO* Anterior;
       if(posicaoElemento(NumExc)==NULL){
           cout << "Valor nao encontrado\n";
       }
       while(EnderecoAtual!=NULL&&posicaoElemento(NumExc)!=NULL){ 
           if(IndiceZero==true){
+            //O IndiceZero existe apenas para verificar se eh a primeira ocorrencia do loop
               if(EnderecoAtual->valor==NumExc){ 
-                  primeiro=EnderecoAtual->prox; 
+                  primeiro=EnderecoAtual->prox;
+                //caso o primeiro item seja o que eu devo excluir
+                //eu defino o segundo endereço como o primeiro endereço e apago o que tava antes
                   free(EnderecoAtual);
                   cout<<"\nSumiu?\n";
                   apagou=true; 
               } 
-              else{ 
+              else{
+                  //eh nescessario salvar o enderco anterior para mudar o seu ponteiro
                   Anterior=EnderecoAtual; 
               } 
   
               IndiceZero=false; 
           } 
-          else{ 
+          else{
+            //verificacao do segundo item em diante
               if(EnderecoAtual->valor==NumExc){ 
-                  Anterior->prox=EnderecoAtual->prox; 
+                  Anterior->prox=EnderecoAtual->prox;
+                //alteracao do ponteiro do anterior para levar
+                //ao endereco da sucessora a variavel atual
                   free(EnderecoAtual); 
                   apagou=true; 
               } 
-              else{ 
+              else{
+                //caso nao seja que eu quero apagar
+                //guardo esse endereco para usar depois
                   Anterior=EnderecoAtual; 
               } 
           } 
-          if(apagou){ 
+          if(apagou){
+            //interromper o loop assim que apagar algum valor
               apagou=false; 
               break; 
           } 
