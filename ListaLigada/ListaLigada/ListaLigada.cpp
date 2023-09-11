@@ -1,4 +1,5 @@
-#include <iostream>  
+#include <iostream>
+#include <cstdio>
   using namespace std;  
   
   // definicao de tipo  
@@ -30,7 +31,7 @@
   {  
           int op = 0;  
           while (op != 7) {  
-                  system("cls"); // somente no windows  
+                  system("clear"); // somente no windows  
                   cout << "Menu Lista Ligada";  
                   cout << endl << endl;  
                   cout << "1 - Inicializar Lista \n";  
@@ -65,7 +66,7 @@
                           break;  
                   }  
   
-                  system("pause"); // somente no windows  
+                  getchar();
           }  
   }  
   
@@ -82,7 +83,8 @@
           }  
   
           primeiro = NULL;
-          cout << "Lista inicializada \n";  
+          cout << "Lista inicializada \n"; 
+          getchar();
   
   }  
   
@@ -94,14 +96,16 @@
                   nElementos++;  
                   aux = aux->prox;  
           }  
-          cout << "Quantidade de elementos: " << nElementos << endl;  
+          cout << "Quantidade de elementos: " << nElementos << endl;
+          getchar();
   
   }  
   
   void exibirElementos()  
   {  
           if (primeiro == NULL) {  
-                  cout << "Lista vazia \n";  
+                  cout << "Lista vazia \n";
+                  getchar();
                   return;  
           }  
           else {  
@@ -110,7 +114,8 @@
                   while (aux != NULL) {  
                           cout << aux->valor << endl;  
                           aux = aux->prox;  
-                  }  
+                  } 
+                  getchar();
           }  
   }  
   
@@ -148,9 +153,12 @@
                   }  
                   aux->prox = novo;  
             }
+            cout << "Valor inserido";
+            getchar();
          }
          else{
              cout << "\nEsse valor ja esta na lista \n";
+             getchar();
          }
   }  
   
@@ -164,6 +172,7 @@
       NO* Anterior;
       if(posicaoElemento(NumExc)==NULL){
           cout << "Valor nao encontrado\n";
+          getchar();
       }
       while(EnderecoAtual!=NULL&&posicaoElemento(NumExc)!=NULL){ 
           if(IndiceZero==true){
@@ -200,11 +209,13 @@
           } 
           if(apagou){
             //interromper o loop assim que apagar algum valor
-              apagou=false; 
-              break; 
+            cout << "Valor deletado\n";
+            getchar();
+            apagou=false; 
+            break; 
           } 
           EnderecoAtual=EnderecoAtual->prox; 
-      } 
+      }
   }  
   
   void buscarElemento(){
@@ -223,6 +234,7 @@
       else{
           cout<<"\nLista vazia\n";
       }
+      getchar();
   }
   
   
